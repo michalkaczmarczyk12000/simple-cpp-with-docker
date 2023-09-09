@@ -6,10 +6,13 @@ services:
     restart: always
     volumes:
       - ./zmq/:/zmq/
-  worker_1:
+  worker:
     build: ./worker_app
-    hostname: worker_1
+    hostname: worker
     restart: always
+    deploy:
+      mode: replicated
+      replicas: 3
     volumes:
       - ./zmq/:/zmq/
   sink:
