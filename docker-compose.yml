@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  source:
+    build: ./source_app
+    restart: always
+    volumes:
+      - ./zmq/:/zmq/
+  worker:
+    build: ./worker_app
+    restart: always
+    volumes:
+      - ./zmq/:/zmq/
+  sink:
+    build: ./sink_app
+    restart: always
+    volumes:
+      - ./zmq/:/zmq/
