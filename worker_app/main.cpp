@@ -17,8 +17,10 @@ int main() {
     while (true) {
         zmq::message_t msg;
         auto res = in_socket.recv(msg, zmq::recv_flags::none);
+       
+        if(res == -1)
+            break; 
 
-    // if res than cokolwoek? 
 
         auto received = std::string((char*)msg.data(), msg.size());
         std::cout << fmt::format("Worker received: {}", received) << std::endl;

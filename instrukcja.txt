@@ -1,0 +1,5 @@
+serwisy uruchomić poleceniem
+
+docker compose up --build
+
+Bonus zrealizowany przy zastosowaniu dockera, możliwość zmiany ilości workerów zmieniając parametr replicas

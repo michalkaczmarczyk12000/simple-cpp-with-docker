@@ -15,8 +15,9 @@ int main() {
         zmq::message_t msg;
         auto res = sock.recv(msg, zmq::recv_flags::none);
 
+        if(res == -1)
+            break;
 
-    // if res...
         auto received = std::string((char*)msg.data(), msg.size());
         std::cout << fmt::format("Sink received: {}", received) << std::endl;
     }
